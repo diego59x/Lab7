@@ -30,6 +30,7 @@ public class Nodo {
     public String toString(){
         return nombre;
     }
+
 /*
     public String getValor(){
         return this.valor;

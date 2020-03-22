@@ -71,26 +71,18 @@ public class BinaryTree {
         }
     }
     // Buscar un nodo en el arbol
-
-    public Nodo buscarNodo(String d){
-        Nodo aux = raiz;
-        // Se hace una copia de la raiz para trabajar mas bonito
-        // Mientras el valor de la raiz sea diferente a lo ingresado va a buscar
-        while(aux.valor != d){
-            if(comp.compareTo(aux.valor, d) > 0){
-                aux = aux.hijoIzquierdo;
-                // Como ya encontro el valor se cierra el ciclo de esta manera
-                aux.valor = d;
-            }else{
-                aux = aux.hijoDerecho;
-                // Como ya encontro el valor se cierra el ciclo de esta manera
-                aux.valor = d;
-            }
-            if(aux == null){
-                return null;
-            }
+public String buscarNodo(String d, Nodo aux){
+        if(aux.valor == d){
+            return aux.nombre;
+        }else if(comp.compareTo(aux.valor, d) < 0&& aux.hijoIzquierdo != null ) {
+            aux = aux.hijoIzquierdo;
+            return buscarNodo(d,aux);
+        }else if (comp.compareTo(aux.valor, d) > 0 && aux.hijoDerecho != null){
+            aux = aux.hijoDerecho;
+            return buscarNodo(d,aux);
+        }else{
+            return null;
         }
 
-    return aux;
     }
 }
