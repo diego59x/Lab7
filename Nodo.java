@@ -28,7 +28,7 @@ public class Nodo {
         this.hijoDerecho = null;
     }
     public String toString(){
-        return nombre;
+        return valor;
     }
 
 /*

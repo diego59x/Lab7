@@ -41,11 +41,13 @@ public class Main{
 	System.out.println("|\tLa traduccion es:\t|");
 	System.out.println("|_______________________________|");
 	for(int p = 0; p<traducir.length; p++){
-			if (arbol.buscarNodo(traducir[p], arbol.getRaiz())== null){
-				System.out.println("*"+traducir[p]+"*");
-			}else{
-				System.out.println(arbol.buscarNodo(traducir[p], nodo));
-			}
+	//System.out.println("traducido: "+arbol.buscar(traducir[p]));	
+            if (arbol.buscar(traducir[p]) == null){
+		System.out.println("*"+traducir[p]+"*");
+	     }else{
+		System.out.println(arbol.buscar(traducir[p]));
+	}
+                               
 	}
   }
 }

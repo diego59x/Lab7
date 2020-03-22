@@ -70,19 +70,26 @@ public class BinaryTree {
             inOrden(r.hijoDerecho);
         }
     }
-    // Buscar un nodo en el arbol
-public String buscarNodo(String d, Nodo aux){
-        if(aux.valor == d){
+  public String buscar(String d){
+       
+       return buscarNodo(d, raiz);
+    }
+    
+    public String buscarNodo(String d, Nodo aux){
+
+        if(aux.valor.equalsIgnoreCase(d)){
             return aux.nombre;
-        }else if(comp.compareTo(aux.valor, d) < 0&& aux.hijoIzquierdo != null ) {
+        }else if(comp.compareTo(aux.valor, d) > 0 && aux.hijoIzquierdo != null ) {
+            //System.out.println("iz: "+aux.hijoIzquierdo); 
             aux = aux.hijoIzquierdo;
+            //System.out.println("d:"+d);
             return buscarNodo(d,aux);
-        }else if (comp.compareTo(aux.valor, d) > 0 && aux.hijoDerecho != null){
+        }else if (comp.compareTo(aux.valor, d) < 0 && aux.hijoDerecho != null){
+            //System.out.println("de: "+aux.hijoDerecho);
             aux = aux.hijoDerecho;
             return buscarNodo(d,aux);
-        }else{
-            return null;
         }
-
+        
+    return null;
     }
 }
